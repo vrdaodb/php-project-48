@@ -31,18 +31,9 @@ try {
     $firstFile = $args['<firstFile>'];
     $secondFile = $args['<secondFile>'];
     
-    // Парсим файлы
-    $data1 = \Differ\Parsers\parseFile($firstFile);
-    $data2 = \Differ\Parsers\parseFile($secondFile);
+    $diff = \Differ\Differ\genDiff($firstFile, $secondFile);
     
-    // Выводим содержимое файлов
-    echo "First file content:\n";
-    print_r($data1);
-    echo "\n";
-    
-    echo "Second file content:\n";
-    print_r($data2);
-    echo "\n";
+    echo $diff . "\n";
     
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage() . "\n";
