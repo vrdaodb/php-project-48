@@ -27,7 +27,24 @@ DOC;
 
 $args = Docopt::handle($doc, array('version' => '1.0.0'));
 
-// Для отладки можно вывести полученные аргументы
-// var_dump($args);
-
-echo "gendiff executed\n";
+try {
+    $firstFile = $args['<firstFile>'];
+    $secondFile = $args['<secondFile>'];
+    
+    // Парсим файлы
+    $data1 = \Differ\Parsers\parseFile($firstFile);
+    $data2 = \Differ\Parsers\parseFile($secondFile);
+    
+    // Выводим содержимое файлов
+    echo "First file content:\n";
+    print_r($data1);
+    echo "\n";
+    
+    echo "Second file content:\n";
+    print_r($data2);
+    echo "\n";
+    
+} catch (\Exception $e) {
+    echo "Error: " . $e->getMessage() . "\n";
+    exit(1);
+}
