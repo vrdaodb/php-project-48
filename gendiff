@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+// Проверяем, передан ли флаг -h или --help
+if (in_array('-h', $argv) || in_array('--help', $argv)) {
+    echo "Generate diff
+
+Usage:
+  gendiff (-h|--help)
+  gendiff [--format <fmt>] <firstFile> <secondFile>
+
+Options:
+  -h --help                     Show this screen
+  --format <fmt>                Report format [default: stylish]
+";
+    exit(0);
+}
+
+echo "gendiff executed\n";
