@@ -11,5 +11,7 @@
             "email": "veritasdevar@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "docopt/docopt": "^1.0"
+    }
 }
