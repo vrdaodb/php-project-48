@@ -13,22 +13,22 @@ class GenDiffTest extends TestCase
         return __DIR__ . '/fixtures/' . $filename;
     }
 
-    public function testGenDiffJson(): void
+    public function testGenDiffNestedJson(): void
     {
-        $file1 = $this->getFixturePath('file1.json');
-        $file2 = $this->getFixturePath('file2.json');
-        $expected = trim(file_get_contents($this->getFixturePath('expected.txt')));
+        $file1 = $this->getFixturePath('nested-file1.json');
+        $file2 = $this->getFixturePath('nested-file2.json');
+        $expected = trim(file_get_contents($this->getFixturePath('nested-expected.txt')));
         
         $actual = genDiff($file1, $file2);
         
         $this->assertEquals($expected, $actual);
     }
 
-    public function testGenDiffYaml(): void
+    public function testGenDiffNestedYaml(): void
     {
-        $file1 = $this->getFixturePath('file1.yml');
-        $file2 = $this->getFixturePath('file2.yml');
-        $expected = trim(file_get_contents($this->getFixturePath('expected.txt')));
+        $file1 = $this->getFixturePath('nested-file1.yml');
+        $file2 = $this->getFixturePath('nested-file2.yml');
+        $expected = trim(file_get_contents($this->getFixturePath('nested-expected.txt')));
         
         $actual = genDiff($file1, $file2);
         
