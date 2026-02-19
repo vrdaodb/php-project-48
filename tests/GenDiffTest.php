@@ -18,9 +18,9 @@ class GenDiffTest extends TestCase
         $file1 = $this->getFixturePath('nested-file1.json');
         $file2 = $this->getFixturePath('nested-file2.json');
         $expected = trim(file_get_contents($this->getFixturePath('nested-expected.txt')));
-        
+
         $actual = genDiff($file1, $file2);
-        
+
         $this->assertEquals($expected, $actual);
     }
 
@@ -29,30 +29,30 @@ class GenDiffTest extends TestCase
         $file1 = $this->getFixturePath('nested-file1.yml');
         $file2 = $this->getFixturePath('nested-file2.yml');
         $expected = trim(file_get_contents($this->getFixturePath('nested-expected.txt')));
-        
+
         $actual = genDiff($file1, $file2);
-        
+
         $this->assertEquals($expected, $actual);
     }
-    
+
     public function testGenDiffJson(): void
-{
-    $file1 = $this->getFixturePath('nested-file1.json');
-    $file2 = $this->getFixturePath('nested-file2.json');
-    $expected = trim(file_get_contents($this->getFixturePath('json-expected.json')));
+    {
+        $file1 = $this->getFixturePath('nested-file1.json');
+        $file2 = $this->getFixturePath('nested-file2.json');
+        $expected = trim(file_get_contents($this->getFixturePath('json-expected.json')));
 
-    $actual = genDiff($file1, $file2, 'json');
+        $actual = genDiff($file1, $file2, 'json');
 
-    $this->assertEquals($expected, $actual);
-}
-   public function testGenDiffPlain(): void
-{
-    $file1 = $this->getFixturePath('nested-file1.json');
-    $file2 = $this->getFixturePath('nested-file2.json');
-    $expected = trim(file_get_contents($this->getFixturePath('plain-expected.txt')));
+        $this->assertEquals($expected, $actual);
+    }
+    public function testGenDiffPlain(): void
+    {
+        $file1 = $this->getFixturePath('nested-file1.json');
+        $file2 = $this->getFixturePath('nested-file2.json');
+        $expected = trim(file_get_contents($this->getFixturePath('plain-expected.txt')));
 
-    $actual = genDiff($file1, $file2, 'plain');
+        $actual = genDiff($file1, $file2, 'plain');
 
-    $this->assertEquals($expected, $actual);
-}
+        $this->assertEquals($expected, $actual);
+    }
 }
