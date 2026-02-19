@@ -30,11 +30,12 @@ $args = Docopt::handle($doc, array('version' => '1.0.0'));
 try {
     $firstFile = $args['<firstFile>'];
     $secondFile = $args['<secondFile>'];
-    
-    $diff = \Differ\Differ\genDiff($firstFile, $secondFile);
-    
+    $format = $args['--format'] ?? 'stylish';
+
+    $diff = \Differ\Differ\genDiff($firstFile, $secondFile, $format);
+
     echo $diff . "\n";
-    
+
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage() . "\n";
     exit(1);

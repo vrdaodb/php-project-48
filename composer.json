@@ -4,10 +4,11 @@
     "autoload": {
         "files": [
             "src/Parsers.php",
-            "src/Builder.php",
+    	    "src/Builder.php",
             "src/Formatters.php",
             "src/Formatters/Stylish.php",
             "src/Formatters/Plain.php",
+            "src/Formatters/Json.php",
             "src/Differ.php"
         ]
     },
