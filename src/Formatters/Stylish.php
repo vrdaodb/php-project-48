@@ -47,7 +47,7 @@ function formatTree(array $tree, int $depth): string
     return "{\n{$result}\n{$bracketIndent}}";
 }
 
-function formatValue($value, int $depth): string
+function formatValue(mixed $value, int $depth): string
 {
     if (is_bool($value)) {
         return $value ? 'true' : 'false';
@@ -70,7 +70,7 @@ function formatObject(object $obj, int $depth): string
     $indent = str_repeat(' ', $depth * 4);
     $bracketIndent = str_repeat(' ', ($depth - 1) * 4);
 
-    if (empty($props)) {
+    if (count($props) === 0) {
         return '{}';
     }
 

@@ -43,7 +43,7 @@ function formatTree(array $tree, string $path): string
     return implode("\n", $filtered);
 }
 
-function formatValue($value): string
+function formatValue(mixed $value): string
 {
     if (is_object($value) || is_array($value)) {
         return '[complex value]';
